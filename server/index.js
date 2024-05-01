@@ -2,7 +2,7 @@ import express from 'express';
 import cors from 'cors';
 import dotenv from 'dotenv';
 import mongoose from 'mongoose';
-import Note from './model/Note'
+import Note from './models/Note.js'
 
 dotenv.config();
 
@@ -17,7 +17,7 @@ const connectDB= async()=>{
 };
 connectDB();
 
-const PORT=5000;
+const PORT=process.env.port || 5000;
 
 
 
