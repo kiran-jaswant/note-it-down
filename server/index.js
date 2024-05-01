@@ -1,7 +1,8 @@
 import express from 'express';
 import cors from 'cors';
 import dotenv from 'dotenv';
-import mongoose,{model,Schema} from 'mongoose';
+import mongoose from 'mongoose';
+import Note from './model/Note'
 
 dotenv.config();
 
@@ -18,16 +19,17 @@ connectDB();
 
 const PORT=5000;
 
-const noteSchema=new Schema({
-    title: String,
-    content: String,
-    category: String
-});
 
-const Note = model("Note",noteSchema);
 
 app.post("/notes",async(req,res)=>{
     const{title,content,category}=req.body;
+
+    if(!title || !content || !category){
+        return res.json({
+            success:false,
+            message:"title,content,category is required"
+        })
+    }
 
     const newNote=await Note.create({
         title:title,
