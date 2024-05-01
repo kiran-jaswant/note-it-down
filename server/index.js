@@ -39,7 +39,7 @@ app.post("/notes",async(req,res)=>{
 
     res.json({
         success:true,
-        message:"Note added successfully",
+        message:"New Note is added successfully",
         data:newNote
     });
 });
@@ -49,7 +49,7 @@ app.get("/notes",async(req,res)=>{
   
     res.json({
         success:true,
-        message:"Notes fetch successfully",
+        message:"All Notes are fetched successfully",
         data:notes
     })
 })
@@ -77,7 +77,7 @@ app.put("/notes/:id",async(req,res)=>{
 
     res.json({
         success:true,
-        message:"Note updated successfully",
+        message:"Your Note is updated successfully",
         data:updatednote
     })
 })
